@@ -7,6 +7,9 @@ import { NavigationComponent } from './components/navigation/navigation.componen
 import { TaskFormComponent } from './components/task-form/task-form.component';
 import { TaskComponent } from './components/task/task.component';
 import { TaskListComponent } from './components/task-list/task-list.component';
+import { HomeComponent } from './views/home/home.component';
+import { ReadComponent } from './views/read/read.component';
+import { UpdateComponent } from './views/update/update.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +17,10 @@ import { TaskListComponent } from './components/task-list/task-list.component';
     NavigationComponent,
     TaskFormComponent,
     TaskComponent,
-    TaskListComponent
+    TaskListComponent,
+    HomeComponent,
+    ReadComponent,
+    UpdateComponent
   ],
   imports: [
     BrowserModule,

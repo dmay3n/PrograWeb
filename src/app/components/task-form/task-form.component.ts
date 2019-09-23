@@ -12,4 +12,8 @@ export class TaskFormComponent implements OnInit {
   ngOnInit() {
   }
 
+  create(name: HTMLInputElement, team: HTMLInputElement, age: HTMLInputElement, position: HTMLInputElement, country: HTMLInputElement){
+    console.log('adding...', name.value, team.value);
+    return false;
+  }
 }

@@ -66,4 +66,15 @@ export class TaskService {
   defineCurrentPlayer(player: Player){
     this.currentPlayer = player;
   }
+
+  updatePlayer(updatedPlayer: Player){
+    this.players = this.getPlayers();
+    for (let i = 0; i < this.players.length; i++) {
+      if (updatedPlayer.id == this.players[i].id) {
+        this.players[i] = updatedPlayer;
+        localStorage.setItem('players', JSON.stringify(this.players));
+        return;
+      }
+    }
+  }
 }

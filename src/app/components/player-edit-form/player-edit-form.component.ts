@@ -24,23 +24,15 @@ export class PlayerEditFormComponent implements OnInit {
 
   updatePlayer(name: HTMLInputElement, team: HTMLInputElement, age: HTMLInputElement, position: HTMLInputElement, country: HTMLInputElement){
     console.log('updating player with ID: ' + this.currentPlayer.id);
-    this.taskService.addPlayer({
-      id: this.incId,
+    this.taskService.updatePlayer({
+      id: this.currentPlayer.id,
       name: name.value,
       team: team.value,
       age: age.value,
       position: position.value,
       country: country.value
-      
     })
 
-    name.value="";
-    team.value="";
-    age.value="";
-    position.value="";
-    country.value="";
-    name.focus();
-    return false;
   }
 
 }

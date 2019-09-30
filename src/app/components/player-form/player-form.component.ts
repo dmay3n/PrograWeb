@@ -10,10 +10,12 @@ import { Player } from '../../models/Player';
 export class PlayerFormComponent implements OnInit {
 
   incId: number;
+  players: Player[];
 
   constructor(public taskService: TaskService) { }
 
   ngOnInit() {
+    this.players = this.taskService.getPlayers();
   }
   
   create(name: HTMLInputElement, team: HTMLInputElement, age: HTMLInputElement, position: HTMLInputElement, country: HTMLInputElement){

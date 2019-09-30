@@ -23,7 +23,7 @@ export class PlayerComponent implements OnInit {
   }
 
   updatePlayer(player: Player){
-    
+    this.taskService.updatePlayer(player);
   }
 
 }

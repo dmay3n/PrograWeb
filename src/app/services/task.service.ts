@@ -6,6 +6,7 @@ import { Player } from '../models/Player';
 })
 export class TaskService {
   players: Player[];
+  
   constructor() { }
 
   getPlayers() {
@@ -15,6 +16,17 @@ export class TaskService {
       this.players = JSON.parse(localStorage.getItem('players'));
     }
     return this.players;
+  }
+
+  getPlayer(id: number){
+    let players = [];
+    players = JSON.parse(localStorage.getItem('players'));
+    for (let i = 0; i < this.players.length; i++) {
+      if(id == players[i].id){
+        return players[i];
+      }
+    }
+    return 0
   }
 
   addPlayer(player: Player) {
@@ -47,7 +59,6 @@ export class TaskService {
         highestId = this.players[i].id;
       }
     }
-
     return highestId;
   }
 

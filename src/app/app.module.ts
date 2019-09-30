@@ -8,8 +8,6 @@ import { HomeComponent } from './views/home/home.component';
 import { ReadComponent } from './views/read/read.component';
 import { UpdateComponent } from './views/update/update.component';
 import { PlayerComponent } from './components/player/player.component';
-import { PlayerFormComponent } from './components/player-form/player-form.component';
-import { PlayerListComponent } from './components/player-list/player-list.component';
 import { TaskService } from './services/task.service';
 //import { RouterModule, Routes } from '@angular/router';
 

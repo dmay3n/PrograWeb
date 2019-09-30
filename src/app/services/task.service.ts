@@ -6,6 +6,7 @@ import { Player } from '../models/Player';
 })
 export class TaskService {
   players: Player[];
+  currentPlayer: Player;
   
   constructor() { }
 
@@ -62,7 +63,7 @@ export class TaskService {
     return highestId;
   }
 
-  updatePlayer(player: Player){
-
+  defineCurrentPlayer(player: Player){
+    this.currentPlayer = player;
   }
 }

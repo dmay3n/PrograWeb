@@ -5,7 +5,7 @@
             <div class="card">
                 <div class="card-body">
                     <!-- FORM TO ADD TASKS -->
-                    <form (submit)="create(name, team, age, position, country)">
+                    <form (submit)="updatePlayer(name, team, age, position, country)">
                     <div class="form-group">
                     <app-player *ngFor="let player of players" [player]=player></app-player>
                         <input type="text" value={{player.name}} #name class="form-control">

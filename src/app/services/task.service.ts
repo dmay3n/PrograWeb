@@ -69,7 +69,10 @@ export class TaskService {
 
   updatePlayer(updatedPlayer: Player){
     this.players = this.getPlayers();
+    console.log("PLAYERS LIST");
+    console.log(this.players);
     for (let i = 0; i < this.players.length; i++) {
+      console.log(updatedPlayer.id + "-" + this.players[i].id)
       if (updatedPlayer.id == this.players[i].id) {
         this.players[i] = updatedPlayer;
         localStorage.setItem('players', JSON.stringify(this.players));

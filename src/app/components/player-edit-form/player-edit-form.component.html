@@ -22,8 +22,11 @@
                     <div class="form-group">
                         <input type="text" value={{player.country}} #country class="form-control">
                     </div>    
-                    <button type="submit" class="btn btn-primary btn-block" routerLink="/showPlayers" routerLinkActive="active">Update</button>
-                    </form>
+                    <!--<button type="submit" class="btn btn-primary btn-block" routerLink="/showPlayers" routerLinkActive="active">Update</button>-->
+                    <button routerLink="/showPlayers" (click)="updatePlayer(name, team, age, position, country)" routerLinkActive="active" class="btn btn-primary">
+                        Update
+                    </button>    
+                </form>
                 </div>
             </div>
         </div>

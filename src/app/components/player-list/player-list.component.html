@@ -1,1 +1,22 @@
-<app-player *ngFor="let player of players" [player]=player></app-player>
+
+<div class="container p-4">
+    <h1 align="center">Players</h1>
+    <div class="row">
+        <div class="col-md-12">
+            <app-player *ngFor="let player of players" [player]=player></app-player>
+        </div>
+    </div>
+</div>
+
+<!--
+<table>
+        <tr>
+          <th>Name</th>
+          <th>Team</th>
+        </tr>
+        <tr *ngFor="let player of players">
+           <td>{{ player.name }}</td>
+           <td>{{ player.team }}</td>
+        </tr>
+</table>
+-->

@@ -39,4 +39,19 @@ export class TaskService {
       }
     }
   }
+
+  getId(){
+    let highestId = 0;
+    for (let i = 0; i < this.players.length; i++){
+      if(this.players[i].id > highestId){
+        highestId = this.players[i].id;
+      }
+    }
+
+    return highestId;
+  }
+
+  updatePlayer(player: Player){
+
+  }
 }

@@ -9,14 +9,18 @@ import { Player } from '../../models/Player';
 })
 export class PlayerFormComponent implements OnInit {
 
+  incId: number;
+
   constructor(public taskService: TaskService) { }
 
   ngOnInit() {
   }
   
   create(name: HTMLInputElement, team: HTMLInputElement, age: HTMLInputElement, position: HTMLInputElement, country: HTMLInputElement){
-    console.log('creating player...');
+    this.incId = this.taskService.getId()+1;
+    console.log('creating player with ID: ' + this.incId);
     this.taskService.addPlayer({
+      id: this.incId,
       name: name.value,
       team: team.value,
       age: age.value,

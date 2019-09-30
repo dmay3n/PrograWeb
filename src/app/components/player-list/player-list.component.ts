@@ -3,22 +3,23 @@ import { TaskService } from '../../services/task.service';
 import { Player } from '../../models/Player';
 
 @Component({
-  selector: 'app-task-list',
-  templateUrl: './task-list.component.html',
-  styleUrls: ['./task-list.component.css']
+  selector: 'app-player-list',
+  templateUrl: './player-list.component.html',
+  styleUrls: ['./player-list.component.css']
 })
-export class TaskListComponent implements OnInit {
+export class PlayerListComponent implements OnInit {
 
   players: Player[];
 
   constructor(public taskService: TaskService) { }
 
   ngOnInit() {
-    this.players = this.taskService.getPlayers()
+    this.players = this.taskService.getPlayers();
+    //console.log(this.players);
   }
 
   addPlayer(player: Player) {
-    console.log(player);
+    //console.log(player);
     this.taskService.addPlayer(player);
   }
 

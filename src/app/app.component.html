@@ -1,14 +1,19 @@
+  
 <app-navigation></app-navigation>
 
 <main ng-view></main>
 
 <div class="container p-4">
+    <h1 align="center">Player</h1>
   <div class="row">
-      <div class="col-md-4">
-          <app-task-form></app-task-form>
+      <div class="col-md-12">
+          <app-player-form></app-player-form>
       </div>
-      <div class="col-md-4">
-          <app-task-list></app-task-list>
-      </div>
+  </div>
+  <h2 align="center">Players</h2>
+  <div class="row">
+    <div class="col-md-12">
+        <app-player-list></app-player-list>
+    </div>
   </div>
 </div>

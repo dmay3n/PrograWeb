@@ -1,0 +1,16 @@
+<div class="card mb-2">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h3>{{ player.name }}</h3>
+        <div>
+            <button (click)="player.hide = !player.hide" class="btn btn-primary">
+                Show
+            </button>
+            <button (click)="deletePlayer(player)" class="btn btn-danger">
+                Delete
+            </button>
+        </div>
+    </div>
+    <div class="card-body">
+        {{player.team}}
+    </div>
+</div>

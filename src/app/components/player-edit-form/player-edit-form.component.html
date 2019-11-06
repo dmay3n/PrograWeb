@@ -5,7 +5,7 @@
             <div class="card">
                 <div class="card-body">
                     <!-- FORM TO ADD TASKS -->
-                    <form (submit)="updatePlayer(name, team, age, position, country)">
+                    <form>
                     <div class="form-group">
                     <app-player *ngFor="let player of players | async" [player]=player></app-player>
                         <input type="text" value={{player.name}} #name class="form-control">
@@ -22,7 +22,7 @@
                     <div class="form-group">
                         <input type="text" value={{player.country}} #country class="form-control">
                     </div>    
-                    <button type="submit" class="btn btn-primary btn-block">Update</button>
+                    <button (click)="updatePlayer(name, team, age, position, country)" value="Refresh" class="btn btn-primary btn-block" routerLink="/showPlayers" routerLinkActive="active">Update</button>
                     </form>
                 </div>
             </div>

@@ -20,6 +20,7 @@ export class PlayerComponent implements OnInit {
   deletePlayer(player: Player) {
     if(confirm('Are you sure you want to delete this player?')) {
       this.taskService.deletePlayer(player);
+      setTimeout(function(){window.location.reload()}, 1000);
     }
   }
 

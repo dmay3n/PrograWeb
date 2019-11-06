@@ -10,6 +10,7 @@ import { TaskService } from '../../services/task.service';
 export class PlayerComponent implements OnInit {
 
   @Input() player: Player;
+  playerToUpdate: any;
 
   constructor(public taskService: TaskService) { }
 
@@ -23,7 +24,6 @@ export class PlayerComponent implements OnInit {
   }
 
   updatePlayer(player: Player){
-    this.taskService.updatePlayer(player);
+    this.taskService.setUpdatePlayer(player);
   }
-
 }

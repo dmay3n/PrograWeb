@@ -1,68 +1,63 @@
 import { Injectable } from '@angular/core';
 import { Player } from '../models/Player';
+import { HttpClient } from '@angular/common/http';
+//const proxyurl = "https://cors-anywhere.herokuapp.com/";
+var baseUrl = 'http://localhost:4000/api/v1/player/';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TaskService {
-  players: Player[];
-  
-  constructor() { }
+  players: any;
+  playerToUpdate: any;
+
+  constructor(private http: HttpClient) { }
 
   getPlayers() {
-    if(localStorage.getItem('players') === null) {
-      this.players = [];
-    } else {
-      this.players = JSON.parse(localStorage.getItem('players'));
-    }
+    this.players = this.http.get(baseUrl)
     return this.players;
   }
 
-  getPlayer(id: number){
+  getPlayer(id: number) {
     let players = [];
     players = JSON.parse(localStorage.getItem('players'));
     for (let i = 0; i < this.players.length; i++) {
-      if(id == players[i].id){
+      if (id == players[i].id) {
         return players[i];
       }
     }
     return 0
   }
 
+  getUpdatePlayer(){
+    console.log(this.playerToUpdate)
+    return this.playerToUpdate;
+  }
+
   addPlayer(player: Player) {
-    this.players.push(player);
-    let players = [];
-    if(localStorage.getItem('players') === null) {
-      players = [];
-      players.push(player);
-      localStorage.setItem('players', JSON.stringify(players));
-    } else {
-      players = JSON.parse(localStorage.getItem('players'));
-      players.push(player); 
-      localStorage.setItem('players', JSON.stringify(players));
-    }
+    this.http.post(baseUrl, player, {responseType: 'text'}).subscribe((ok)=>{console.log(ok)});
   }
 
   deletePlayer(player: Player) {
-    for (let i = 0; i < this.players.length; i++) {
-      if (player == this.players[i]) {
-        this.players.splice(i, 1);
-        localStorage.setItem('players', JSON.stringify(this.players));
-      }
-    }
+    this.http.delete(baseUrl+player.id, {responseType: 'text'}).subscribe((ok)=>{console.log(ok)});
   }
 
-  getId(){
+  getId() {
     let highestId = 0;
-    for (let i = 0; i < this.players.length; i++){
-      if(this.players[i].id > highestId){
+    for (let i = 0; i < this.players.length; i++) {
+      if (this.players[i].id > highestId) {
         highestId = this.players[i].id;
       }
     }
     return highestId;
   }
 
-  updatePlayer(player: Player){
+  setUpdatePlayer(updatedPlayer: Player) {
+    console.log(updatedPlayer.id)
+    this.playerToUpdate = updatedPlayer;
+  }
 
+  updatePlayer(updatedPlayer: any, id: Number){
+    this.http.put(baseUrl+id, updatedPlayer, {responseType: 'text'}).subscribe((ok)=>{console.log(ok)});
   }
 }

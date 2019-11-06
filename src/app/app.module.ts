@@ -9,6 +9,7 @@ import { ReadComponent } from './views/read/read.component';
 import { UpdateComponent } from './views/update/update.component';
 import { PlayerComponent } from './components/player/player.component';
 import { TaskService } from './services/task.service';
+import { HttpClientModule } from '@angular/common/http';
 //import { RouterModule, Routes } from '@angular/router';
 
 @NgModule({
@@ -23,7 +24,8 @@ import { TaskService } from './services/task.service';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [TaskService],
   bootstrap: [AppComponent]

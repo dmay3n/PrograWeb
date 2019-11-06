@@ -8,8 +8,8 @@ import { Player } from '../../models/Player';
   styleUrls: ['./player-list.component.css']
 })
 export class PlayerListComponent implements OnInit {
-
-  players: Player[];
+  //players: Player[];
+  players: any;
 
   constructor(public taskService: TaskService) { }
 

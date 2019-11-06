@@ -11,35 +11,30 @@ export class PlayerEditFormComponent implements OnInit {
 
   incId: number;
   currentPlayer: Player;
-  @Input() player: Player;
+  @Input() player: any;
 
   constructor(public taskService: TaskService) { }
 
   ngOnInit() {
-    this.player = this.taskService.getPlayer(2);
+    this.player = this.taskService.getUpdatePlayer();
   }
 
   chargePlayerData(id: number, name: HTMLInputElement, team: HTMLInputElement, age: HTMLInputElement, position: HTMLInputElement, country: HTMLInputElement){
-    this.currentPlayer = this.taskService.getPlayer(id);
-    name.value=this.currentPlayer.name;
-    team.value=this.currentPlayer.team;
-    age.value=this.currentPlayer.age;
-    position.value=this.currentPlayer.position;
-    country.value=this.currentPlayer.country;
+    name.value=this.player.name;
+    team.value=this.player.team;
+    age.value=this.player.age;
+    position.value=this.player.position;
+    country.value=this.player.country;
   }
 
   updatePlayer(name: HTMLInputElement, team: HTMLInputElement, age: HTMLInputElement, position: HTMLInputElement, country: HTMLInputElement){
-    this.incId = this.taskService.getId()+1;
-    console.log('creating player with ID: ' + this.incId);
-    this.taskService.addPlayer({
-      id: this.incId,
+    this.taskService.updatePlayer({
       name: name.value,
       team: team.value,
       age: age.value,
       position: position.value,
       country: country.value
-      
-    })
+    }, this.player.id)
 
     name.value="";
     team.value="";

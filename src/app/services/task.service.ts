@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Player } from '../models/Player';
 import { HttpClient } from '@angular/common/http';
 //const proxyurl = "https://cors-anywhere.herokuapp.com/";
-var baseUrl = 'http://localhost:4000/api/v1/player/';
+var baseUrl = 'http://backendmayen.westus.azurecontainer.io:4000/api/v1/player/';
 
 @Injectable({
   providedIn: 'root'
